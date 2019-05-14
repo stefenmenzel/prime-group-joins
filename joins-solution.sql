@@ -30,10 +30,16 @@
     GROUP BY "customers".first_name, "customers".last_name;
 
 -- 6. How many customers do we have?
+    SELECT count("customers") FROM "customers";
 
 -- 7. How many products do we carry?
+    SELECT count("products") FROM "products";
 
 -- 8. What is the total available on-hand quantity of diet pepsi?
+    SELECT "products".description, count("warehouse_product") FROM "products"
+    JOIN "warehouse_product" ON "products".id = "warehouse_product".product_id
+    WHERE "products".id = 6
+    GROUP BY "products".description;
 
 -- Stretch
 -- 9. How much was the total cost for each order?
